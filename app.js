@@ -2,9 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var hike = require('./routes/hike');
-<<<<<<< HEAD
 var monitor = require('./routes/monitor');
-=======
 var home = require('./routes/home');
 var gallery = require('./routes/gallery');
 var enrollment = require('./routes/enrollment');
@@ -12,7 +10,6 @@ var myaccount = require('./routes/myaccount');
 var myschedule = require('./routes/myschedule');
 var mypayment = require('./routes/mypayment');
 var mycommunication = require('./routes/mycommunication');
->>>>>>> 11b8b8056f189db2718575d0e72891b012a57227
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -22,14 +19,11 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.get('/hikes', hike.index);
-<<<<<<< HEAD
 app.get('/monitor', monitor.index);
-=======
 app.get('/myaccount', myaccount.index);
 app.get('/myschedule', myschedule.index);
 app.get('/mycommunication', mycommunication.index);
 app.get('/mypayment', mypayment.index);
->>>>>>> 11b8b8056f189db2718575d0e72891b012a57227
 app.post('/add_hike', hike.add_hike)
 app.get('/home', home.index);
 app.get('/gallery', gallery.index);

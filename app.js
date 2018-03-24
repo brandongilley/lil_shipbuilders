@@ -6,6 +6,7 @@ var monitor = require('./routes/monitor');
 var home = require('./routes/home');
 var gallery = require('./routes/gallery');
 var enrollment = require('./routes/enrollment');
+var videomonitoring = require('./routes/videomonitoring');
 var myaccount = require('./routes/myaccount');
 var myschedule = require('./routes/myschedule');
 var mypayment = require('./routes/mypayment');
@@ -30,6 +31,7 @@ app.post('/add_hike', hike.add_hike)
 app.get('/home', home.index);
 app.get('/gallery', gallery.index);
 app.get('/enrollment', enrollment.index);
+app.get('/videomonitoring', videomonitoring.index);
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');

@@ -2,6 +2,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var hike = require('./routes/hike');
+var home = require('./routes/home');
+var gallery = require('./routes/gallery');
+var enrollment = require('./routes/enrollment');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -12,6 +15,9 @@ var usersRouter = require('./routes/users');
 var app = express();
 app.get('/hikes', hike.index);
 app.post('/add_hike', hike.add_hike)
+app.get('/home', home.index);
+app.get('/gallery', gallery.index);
+app.get('/enrollment', enrollment.index);
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');

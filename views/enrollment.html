@@ -4,21 +4,27 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
+body {
+  margin: 0;
+  font-size: 28px;
+}
+
 .header {
-  background-color: #f1f1f1;
+  background-color: #000066;
+  color: #ffffff;
   padding: 30px;
   text-align: center;
 }
 
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #ffd11a;
 }
 
 #navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -31,7 +37,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 #navbar a.active {
-  background-color: #4CAF50;
+  background-color: #ffd11a;
   color: white;
 }
 
@@ -48,6 +54,30 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .sticky + .content {
   padding-top: 60px;
 }
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #ffd11a;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* to here */
+
+
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -159,8 +189,8 @@ hr {
 <body>
 
     <div class="header">
-        <h2>Scroll Down</h2>
-        <p>Scroll down to see the sticky effect.</p>
+        <h2>Lil' Shipbuilders</h2>
+        <p>Taking care of our future mariners</p>
       </div>
       
       <div id="navbar">

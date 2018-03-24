@@ -5,6 +5,10 @@ var hike = require('./routes/hike');
 var home = require('./routes/home');
 var gallery = require('./routes/gallery');
 var enrollment = require('./routes/enrollment');
+var myaccount = require('./routes/myaccount');
+var myschedule = require('./routes/myschedule');
+var mypayment = require('./routes/mypayment');
+var mycommunication = require('./routes/mycommunication');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -14,6 +18,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.get('/hikes', hike.index);
+app.get('/myaccount', myaccount.index);
+app.get('/myschedule', myschedule.index);
+app.get('/mycommunication', mycommunication.index);
+app.get('/mypayment', mypayment.index);
 app.post('/add_hike', hike.add_hike)
 app.get('/home', home.index);
 app.get('/gallery', gallery.index);

@@ -2,6 +2,8 @@ branch-defaults:
   default:
     environment: node-express-env
     group_suffix: null
+  master:
+    environment: lil-shipbuilders-env
 global:
   application_name: node-express
   branch: null

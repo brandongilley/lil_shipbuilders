@@ -2,6 +2,10 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var hike = require('./routes/hike');
+var myaccount = require('./routes/myaccount');
+var myschedule = require('./routes/myschedule');
+var mypayment = require('./routes/mypayment');
+var mycommunication = require('./routes/mycommunication');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -11,6 +15,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.get('/hikes', hike.index);
+app.get('/myaccount', myaccount.index);
+app.get('/myschedule', myschedule.index);
+app.get('/mycommunication', mycommunication.index);
+app.get('/mypayment', mypayment.index);
 app.post('/add_hike', hike.add_hike)
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));

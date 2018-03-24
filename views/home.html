@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header {
+  background-color: #000066;
+  color: #ffffff;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #ffd11a;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #ffd11a;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #ffd11a;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+
+.sidenav {
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <div class="sidenav">
+    <a href="#current_events">Current Events</a>
+    <a href="#who_we_are">Who We Are</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#what_we_offer">What We Offer</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#enrollment">Enrollment</a>
+    <a href="#safety"> Safety</a>
+    <a href="#contact_us">Contact Us</a>
+    
+  </div>
+</div>
+
+<div class="header">
+  <h2>Scroll Down</h2>
+  <p>Scroll down to see the sticky effect.</p>
+</div>
+
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+   	<a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+<div class="main">
+  <h2>Current Events</h2>
+  <p>Placeholder for calendar</p>
+  
+  <h2>Who We Are</h2>
+  <p>We are Team 10. We will rock your socks off and win $500 so I can pay this month's rent</p>
+  
+  <h2>Gallery</h2>
+  <p>Photos</p>
+  
+  <h2>What We Offer</h2>
+  <p>We offer winning and bubblegum and we're almost out of gum.</p>
+  
+  <h2>Pricing</h2>
+  <p>An arm and a leg... maybe even a battleship</p>
+  
+  <h2>Enrollment</h2>
+  <p>Enrolling with us is easy! Just get an eye patch and become a pirate.</p>
+  
+  <h2> Security and Safety</h2>
+  <p>All toddlers will be accompanied by pirates armed with their own cannon.</p>
+  
+  
+  <h2>Contact Us</h2>
+  <p>Email: lilshipbuilders@gmail.com</p>
+  <p>Phone: 444-333-7654</p>
+  <p>Fax: Who uses fax still??</p>
+  
+  <div class="container">
+  <form action="/action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+  
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>

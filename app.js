@@ -9,6 +9,7 @@ var enrollment = require('./routes/enrollment');
 var myaccount = require('./routes/myaccount');
 var myschedule = require('./routes/myschedule');
 var mypayment = require('./routes/mypayment');
+var mychild = require('./routes/mychild');
 var mycommunication = require('./routes/mycommunication');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -22,6 +23,7 @@ app.get('/hikes', hike.index);
 app.get('/monitor', monitor.index);
 app.get('/myaccount', myaccount.index);
 app.get('/myschedule', myschedule.index);
+app.get('/mychild', mychild.index);
 app.get('/mycommunication', mycommunication.index);
 app.get('/mypayment', mypayment.index);
 app.post('/add_hike', hike.add_hike)

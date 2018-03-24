@@ -1,3 +1,138 @@
+<!DOCTYPE html>
 <html>
-       
+
+
+<head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script>
+        AWS.config.update({
+            region: "us-east-1",
+            endpoint: 'dynamodb.us-east-1.amazonaws.com',
+            // accessKeyId default can be used while using the downloadable version of DynamoDB.
+            // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+            accessKeyId: "AKIAI3LNASC4R4ADDPIA",
+            // secretAccessKey default can be used while using the downloadable version of DynamoDB.
+            // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+            secretAccessKey: "aPyseOzzt3y1jEt6gbeVxTD+RGqxYdMpZaPXLwhz"
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 50%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            background-color: wheat;
+            width: 15%;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+</head>
+
+<script>
+    function cardClicked() {
+        //var msg = name;
+        //alert(msg);
+        //alert("END");
+        window.location.href = "https://localhost:3000/mychild";
+    }
+
+    function createCard(Name,Role) {
+        var cardTemplate = [
+            '<div class="card" onclick="cardClicked()" onmouseover="" style="cursor: pointer;">',
+            '<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:30%">',
+            '<p>',
+            Name || 'No name provided',
+            '</p></div>'
+        ];
+
+        // a jQuery node
+        return $(cardTemplate.join(''));
+    }
+
+    var docClient = new AWS.DynamoDB.DocumentClient();
+    var params = {
+        TableName: "Users"
+    }
+
+    docClient.scan(params, function (err, data) {
+        if (err) {
+            alert("it didnt work");
+            //document.getElementById('textarea').innerHTML += "Scan fail: " + "\n" + JSON.stringify(err, undefined, 2);
+        } else {
+            //alert("it worked");
+            //document.getElementById('textarea').innerHTML += "Scan Success" + "\n"; //+ JSON.stringify(data, undefined, 2);
+            $("li").remove();
+            var cards = $();
+            jQuery.each(data.Items, function (i, val) {
+                if (val.Role == "Child")
+                {
+                    cards = cards.add(createCard(val.Name))
+                }
+                
+            });
+            // Add them to the page... for instance the <body>
+            $(function () {
+                $('body').append(cards);
+            });
+            //document.getElementById("createJob").value = "";
+            //document.getElementById("createName").value = "";
+        }
+    })
+
+</script>
+
+<body>
+
+    <h1>Messages</h1>
+
+    <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th>From</th>
+                <th>Message</th>
+            </tr>
+            <tr>
+                <td>Judith Wilson</td>
+                <td>Lola needs to take her medicine at 10am</td>
+            </tr>
+            <tr>
+                <td>Judith Wilson</td>
+                <td>I'll be picking up Bubba at 2pm today</td>
+            </tr>
+      
+        </table>
+    </div>
+
+    <div>
+        <h1>My Children</h1>
+    </div>
+    <div id="thisone"></div>
+</body>
+
 </html>
